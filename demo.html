@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.green.min.css">
+    
+    <style>
+        #addtocart {
+    width: 250px;
+}
+.badge {
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.shopping-cart {
+    background: white;
+    width: 320px;
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    border-radius: 3px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .26) !important;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    opacity: 0;
+    -webkit-transform-origin: right top 0;
+    -webkit-transform: scale(0);
+    transform-origin: right top 0;
+    transform: scale(0);
+}
+.shopping-cart.active {
+    opacity: 1;
+    -webkit-transform-origin: right top 0;
+    -webkit-transform: scale(1);
+    transform-origin: right top 0;
+    transform: scale(1);
+}
+.shopping-cart .shopping-cart-header {
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 15px;
+}
+.shopping-cart .shopping-cart-header .shopping-cart-total {
+    float: right;
+}
+.shopping-cart .shopping-cart-items {
+    padding-top: 20px;
+}
+.shopping-cart .shopping-cart-items li {
+    margin-bottom: 18px;
+}
+.shopping-cart .shopping-cart-items img {
+    float: left;
+    margin-right: 12px;
+    max-width: 70px;
+    max-height: 70px;
+}
+.shopping-cart .shopping-cart-items .item-name {
+    display: block;
+    font-size: 16px;
+}
+.shopping-cart .shopping-cart-items .item-detail {
+    display: block;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.shopping-cart .shopping-cart-items .item-price {
+    color: #00c0cb;
+    margin-right: 8px;
+}
+.shopping-cart .shopping-cart-items .item-quantity {
+    color: #abb0be;
+}
+.shopping-cart:after {
+    bottom: 100%;
+    left: 89%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: white;
+    border-width: 8px;
+    margin-left: -8px;
+}
+.cart-icon {
+    color: #515783;
+    font-size: 24px;
+    margin-right: 7px;
+    float: left;
+}
+.button {
+    background: #f8770c;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    display: block;
+    border-radius: 3px;
+    font-size: 16px;
+    margin: 25px 0 15px 0;
+    text-transform: uppercase;
+}
+.button:hover {
+    background: #f87f1b;
+}
+.button i {
+    padding-left: 5px;
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+    </style>
+</head>
+<body>
+
+    <li class="nav-item">
+        <a class="nav-link" href="#" id="cart"
+          ><i class="fa-solid fa-cart-shopping"></i
+          ><span class="badge bg-danger">0</span></a
+        >
+
+
+
+<!-- cart -->
+        <div class="navbar-right">
+          
+          <div class="shopping-cart">
+            <div class="shopping-cart-header">
+              <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">16</span>
+              <div class="shopping-cart-total">
+                <span class="lighter-text">Total:</span>
+                <span class="main-color-text total">$461.15</span>
+              </div>
+            </div> <!--end shopping-cart-header -->
+    
+            <ul class="shopping-cart-items">
+              <li class="clearfix">
+                <img src="image/bench-press.png" alt="item1" />
+                <span class="item-name">XMREDTREE</span>
+                <span class="item-detail">Pack 100</span>
+                <span class="item-price">$49.50</span>
+                <span class="item-quantity">Quantity: 01</span>
+              </li>
+    
+              <li class="clearfix">
+                <img src="image/ball.png" alt="item1" />
+                <span class="item-name">XMWHREIN</span>
+                <span class="item-detail">Pack 100</span>
+                <span class="item-price">$34.06</span>
+                <span class="item-quantity">Quantity: 10</span>
+              </li>
+    
+              <li class="clearfix">
+                <img src="image/gym.png" alt="item1" />
+                <span class="item-name">XMJBRR</span>
+                <span class="item-detail">Pack 25</span>
+                <span class="item-price">$14.21</span>
+                <span class="item-quantity">Quantity: 5</span>
+              </li>
+            </ul>
+    
+            <a href="#" class="button">Checkout <i class="fa fa-chevron-right"></i></a>
+          </div> <!--end shopping-cart -->
+        </div> <!--end navbar-right -->
+
+
+
+
+
+       <script src="js/jquery-3.7.1.min.js"></script>
+       <script>
+        (function(){
+        $(document).click(function() {
+           var $item = $(".shopping-cart");
+           if ($item.hasClass("active")) {
+             $item.removeClass("active");
+           }
+         });
+         
+         $('.shopping-cart').each(function() {
+           var delay = $(this).index() * 50 + 'ms';
+           $(this).css({
+               '-webkit-transition-delay': delay,
+               '-moz-transition-delay': delay,
+               '-o-transition-delay': delay,
+               'transition-delay': delay
+           });
+         });
+         $('#cart').click(function(e) {
+           e.stopPropagation();
+           $(".shopping-cart").toggleClass("active");
+         });
+         
+         $('#addtocart').click(function(e) {
+           e.stopPropagation();
+           $(".shopping-cart").toggleClass("active");
+         });
+       
+       
+         
+       })();
+       </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    
+    
+</body>
+</html>
